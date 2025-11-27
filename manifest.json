@@ -1,0 +1,21 @@
+{
+    "name": "Kitchen Command",
+    "short_name": "Timer",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#003366",
+    "theme_color": "#003366",
+    "description": "Retro Kitchen Multi-Timer",
+    "icons": [
+      {
+        "src": "https://cdn-icons-png.flaticon.com/512/3652/3652191.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "https://cdn-icons-png.flaticon.com/512/3652/3652191.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
