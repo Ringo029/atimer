@@ -107,6 +107,21 @@
       padding: 0 4px;
     }
 
+    /* --- ADD TIMER BUTTON WRAPPER --- */
+    /* UPDATED: Removed margin-top: auto so it sits at the top */
+    #addTimerWrapper { 
+      text-align: center; 
+      margin-bottom: 15px; 
+      padding-bottom: 10px;
+      border-bottom: 1px solid #999;
+    }
+    #addTimerBtn { 
+      font-size: 16px; 
+      padding: 12px 20px; /* Made button slightly easier to tap */
+      width: 100%; 
+      background-color: #e0e0e0; /* Slightly lighter to stand out */
+    }
+
     /* --- TIMER CARDS --- */
     .timer {
       border: 2px solid #404040;
@@ -179,12 +194,9 @@
     .btn-reset, .btn-del { font-size: 11px; }
     .btn-quick { font-size: 11px; padding: 4px 8px; flex-grow: 1; }
 
-    #addTimerWrapper { text-align: center; margin-top: auto; padding-top: 20px; }
-    #addTimerBtn { font-size: 16px; padding: 10px 20px; width: 100%; }
-
     @media (min-width: 600px) {
       #page { margin-top: 20px; margin-bottom: 20px; }
-      #addTimerBtn { width: auto; }
+      #addTimerBtn { width: auto; padding-left: 40px; padding-right: 40px; }
     }
   </style>
 </head>
@@ -205,11 +217,12 @@
     </div>
   </div>
   
-  <div id="timers"></div>
-
   <div id="addTimerWrapper">
     <button id="addTimerBtn">+ New Timer</button>
   </div>
+
+  <div id="timers"></div>
+
 </div>
 
 <script>
@@ -234,7 +247,7 @@
     let audioCtx = null;
     let wakeLock = null;
 
-    // --- AUDIO & WAKE LOCK (Same as before) ---
+    // --- AUDIO & WAKE LOCK ---
     function initAudio() {
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === 'suspended') audioCtx.resume();
@@ -338,6 +351,9 @@
 
           chip.appendChild(del);
           chip.onclick = () => {
+            // Create timer at TOP of list logic
+            // To do this, we need to unshift into state array and re-render or insertBefore
+            // For simplicity in this version, we append, but scroll to it.
             createTimer({ 
               id: Date.now().toString(), 
               label: p.label, 
@@ -451,6 +467,11 @@
       controlsDiv.append(startBtn, resetBtn, deleteBtn);
 
       wrapper.append(labelRow, display, quickAddDiv, controlsDiv);
+      
+      // PREPEND: Add new timers to the top of the list for better UX?
+      // For now, we append to bottom to keep order stable, 
+      // but since the add button is at the top, we could use prepend.
+      // Let's stick to appendChild so old timers stay at top.
       timersContainer.appendChild(wrapper);
 
       let localInterval = null;
