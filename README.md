@@ -1,4 +1,4 @@
-# ⏲️ Kitchen Command (Multi-Timer)
+# ⏲️ A timer. (Multi-Timer)
 
 > A robust, retro-styled, distraction-free timing power tool designed specifically for home cooks.
 
