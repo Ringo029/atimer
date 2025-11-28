@@ -23,7 +23,7 @@ It features a high-contrast "Win95/Web 1.0" aesthetic for readability, robust st
 ## 🚀 Quick Start
 
 ### Option 1: Live Demo
-[Insert Link to GitHub Pages Here]
+[https://ringo029.github.io/atimer/index.html]
 
 ### Option 2: Run Locally
 1.  Clone this repository.
