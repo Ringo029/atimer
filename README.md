@@ -49,7 +49,7 @@ Tap the Share button (box with arrow).
 
 Scroll down and tap "Add to Home Screen".
 
-On Android (Chrome):
+📲 On Android (Chrome):
 
 Navigate to the hosted URL.
 
