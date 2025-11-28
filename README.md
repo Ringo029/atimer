@@ -38,6 +38,7 @@ It features a high-contrast "Win95/Web 1.0" aesthetic for readability, robust st
 ├── manifest.json    # PWA configuration (Name, Icons)
 ├── sw.js            # Service Worker for offline caching
 └── icon-192.png     # (Optional) App Icon
+```
 
 📲 How to Install (Mobile)
 On iOS (Safari):
